@@ -1,0 +1,19 @@
+{
+  "name": "@bbllc/reactlib",
+  "version": "1.0.0",
+  "description": "A group of reusable React components and hooks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbcllc/reactlib.git"
+  },
+  "author": "@bramirez96",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bbcllc/reactlib/issues"
+  },
+  "homepage": "https://github.com/bbcllc/reactlib#readme"
+}
