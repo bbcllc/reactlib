@@ -42,18 +42,22 @@ describe('useAsync', () => {
 
     // Expect a an array with length 4
     expect(Object.keys(returnObj)).toHaveLength(4);
+
     // Expect loading state to be false
     expect(returnObj[1]).toBe(false);
     // Expect the initial state value to be undefined
     expect(returnObj[2]).toBeUndefined();
     // Expect there to be no errors
     expect(returnObj[3]).toBeUndefined();
+
     // Execute the function
     const res = act(returnObj[0]);
     // It should be "Loading" while function is running
     expect(returnObj[1]).toBe(true);
+
     // Wait for the function to finish executing
     await res;
+
     // Expect the new state value to be null
     expect(returnObj[2]).toBe(null);
     // Expect there to be no errors
@@ -70,18 +74,22 @@ describe('useAsync', () => {
 
     // Expect a an array with length 4
     expect(Object.keys(returnObj)).toHaveLength(4);
+
     // Expect loading state to be false
     expect(returnObj[1]).toBe(false);
     // Expect the initial state value to be undefined
     expect(returnObj[2]).toBeUndefined();
     // Expect there to be no errors
     expect(returnObj[3]).toBeUndefined();
+
     // Execute the function
     const res = act(returnObj[0]);
     // It should be "Loading" while function is running
     expect(returnObj[1]).toBe(true);
+
     // Wait for the function to finish executing
     await res;
+
     // Expect the new state value to still be undefined
     expect(returnObj[2]).toBeUndefined();
     // Expect there to be an error
@@ -95,18 +103,22 @@ describe('useAsync', () => {
 
     // Expect a an array with length 4
     expect(Object.keys(returnObj)).toHaveLength(4);
+
     // Expect loading state to be false
     expect(returnObj[1]).toBe(false);
     // Expect the initial state value to be undefined
     expect(returnObj[2]).toBeUndefined();
     // Expect there to be no errors
     expect(returnObj[3]).toBeUndefined();
+
     // Execute the function
     const res = act(returnObj[0]);
     // It should be "Loading" while function is running
     expect(returnObj[1]).toBe(true);
+
     // Wait for the function to finish executing
     await res;
+
     // Expect the new state value to be true
     expect(returnObj[2]).toBe(true);
     // Expect there to be no errors
