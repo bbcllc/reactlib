@@ -35,4 +35,5 @@ describe('Loader component', () => {
     });
     expect(queryAllByText('.')).toHaveLength(0);
   });
+  jest.useRealTimers();
 });
