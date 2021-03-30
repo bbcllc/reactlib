@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { act, render } from '@testing-library/react';
-import { useAsync } from '..';
+import React, { useState } from 'react';
+import { useAsync } from '../../hooks';
 
 function setup(param: Parameters<typeof useAsync>[0]) {
   const returnVal = {};
