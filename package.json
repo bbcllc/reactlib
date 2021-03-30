@@ -1,6 +1,6 @@
 {
   "name": "@bbllc/reactlib",
-  "version": "1.0.0",
+  "version": "1.0.21",
   "description": "A group of reusable React components and hooks.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "yarn build",
-    "prepublishOnly": "yarn format && yarn lint && yarn test",
+    "prepublishOnly": "yarn format && yarn lint && yarn test:once",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
     "postversion": "git push && git push --tags"
