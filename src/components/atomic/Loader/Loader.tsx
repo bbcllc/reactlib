@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Dots from './Dots';
 
 const Loader = ({
   message = 'Loading',
-  showDots = true,
+  hideDots = false,
 }: {
   message?: string;
-  showDots?: boolean;
+  hideDots?: boolean;
 }): React.ReactElement => {
+  const dots = useMemo(() => (hideDots ? null : <Dots />), [hideDots]);
   return (
     <div className="loader-wrapper">
       <div className="loader-container">
         <div className="message">
           {message}
-          {showDots && <Dots />}
+          {dots}
         </div>
       </div>
     </div>
