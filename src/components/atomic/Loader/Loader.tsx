@@ -4,10 +4,11 @@ import Dots from './Dots';
 const Loader = ({
   message = 'Loading',
   hideDots = false,
-}: {
+  children,
+}: React.PropsWithChildren<{
   message?: string;
   hideDots?: boolean;
-}): React.ReactElement => {
+}>): React.ReactElement => {
   return (
     <div className="loader-wrapper">
       <div className="loader-container">
@@ -15,6 +16,7 @@ const Loader = ({
           {message}
           {!hideDots && <Dots />}
         </div>
+        {children && <div className="loader-content">{children}</div>}
       </div>
     </div>
   );

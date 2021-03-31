@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { createContext } from 'react';
+import ModalBody from './ModalBody';
+import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';
-import {
-  IModalContainerProps,
-  IModalHeaderProps,
-  ModalContext,
-} from './modalTypes';
+import { IModalContainerProps } from './modalTypes';
+import useModal from './useModal';
 
-const ModalContainer: React.FC<IModalContainerProps> & {
-  Header: React.FC<IModalHeaderProps>;
-} = ({ children, ...props }): React.ReactElement => {
+export const ModalContext = createContext<IModalContainerProps | undefined>(
+  undefined
+);
+
+const ModalContainer = ({
+  children,
+  ...props
+}: React.PropsWithChildren<IModalContainerProps>): React.ReactElement => {
   return (
     <ModalContext.Provider value={props}>
       <div className="modal-wrapper">
@@ -18,6 +22,10 @@ const ModalContainer: React.FC<IModalContainerProps> & {
   );
 };
 
+// Add the other elements to the ModalContainer
 ModalContainer.Header = ModalHeader;
+ModalContainer.Body = ModalBody;
+ModalContainer.Footer = ModalFooter;
+ModalContainer.useModal = useModal;
 
 export default ModalContainer;

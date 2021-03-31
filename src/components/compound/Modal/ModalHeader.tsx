@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
-import { IModalHeaderProps, ModalContext } from './modalTypes';
+import React from 'react';
+import { IModalHeaderProps } from './modalTypes';
+import useModal from './useModal';
 
 const ModalHeader: React.FC<IModalHeaderProps> = ({
   children,
   hideCloseButton = false,
 }): React.ReactElement => {
   // TODO add a proper close button
-  const { closeModal } = useContext(ModalContext);
+  const { closeModal } = useModal();
+
   return (
-    <div className="modal-header-wrapper">
+    <div className="modal-header-wrapper" data-testid="modal-header">
       <div className="modal-header-container">
         <div className="modal-header-content">{children}</div>
         {!hideCloseButton && (

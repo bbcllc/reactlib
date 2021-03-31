@@ -21,6 +21,19 @@ describe('Loader component', () => {
     expect(queryByText(MSG_TEXT)).toBeTruthy();
   });
 
+  it('correctly renders children', () => {
+    // Render a ReactNode as a child of Loader
+    const CHILD_TEXT = 'This is rendered inside the loader';
+    const { queryByText } = render(
+      <Loader>
+        <div>{CHILD_TEXT}</div>
+      </Loader>
+    );
+
+    // Assert that the child was loaded successfully
+    expect(queryByText(CHILD_TEXT)).toBeTruthy();
+  });
+
   it('correctly progresses the Dots interval', () => {
     const { queryByText } = render(<Loader />);
 
