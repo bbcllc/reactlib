@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import Dots from './Dots';
 
 const Loader = ({
@@ -8,13 +8,12 @@ const Loader = ({
   message?: string;
   hideDots?: boolean;
 }): React.ReactElement => {
-  const dots = useMemo(() => (hideDots ? null : <Dots />), [hideDots]);
   return (
     <div className="loader-wrapper">
       <div className="loader-container">
         <div className="message">
           {message}
-          {dots}
+          {!hideDots && <Dots />}
         </div>
       </div>
     </div>
