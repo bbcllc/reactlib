@@ -1,6 +1,6 @@
 {
   "name": "@bbllc/reactlib",
-  "version": "1.0.25",
+  "version": "1.0.251",
   "description": "A group of reusable React components and hooks.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
