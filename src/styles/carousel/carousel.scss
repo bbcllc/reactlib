@@ -1,0 +1,54 @@
+.carousel-wrapper {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-flow: column nowrap;
+
+  @import './carouselCircles.scss';
+
+  .carousel-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    height: 30rem;
+
+    .carousel-left,
+    .carousel-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      color: #fff9;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        color: #fff;
+      }
+    }
+
+    @import './carouselContent.scss';
+    .carousel-body {
+      height: 100%;
+      flex-grow: 2;
+      height: 30rem;
+
+      .carousel-card {
+        height: 30rem;
+        flex-grow: 1;
+        & > div {
+          height: 30rem;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
