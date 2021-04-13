@@ -1,0 +1,6 @@
+{
+  "bundlerOptions": {
+    "rootDir": "./src",
+    "outFile": "./dist/styles.scss"
+  }
+}

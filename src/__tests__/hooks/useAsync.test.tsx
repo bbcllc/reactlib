@@ -9,7 +9,7 @@ function setup(param: Parameters<typeof useAsync>[0]) {
     return null;
   }
   render(<TestComponent />);
-  return returnVal;
+  return returnVal as ReturnType<typeof useAsync>;
 }
 
 function setupWithSetter(param: Parameters<typeof useAsync>[0]) {
@@ -31,14 +31,14 @@ function setupWithSetter(param: Parameters<typeof useAsync>[0]) {
     return null;
   }
   render(<TestComponent />);
-  return returnVal;
+  return returnVal as ReturnType<typeof useAsync>;
 }
 
 describe('useAsync', () => {
   it('returns a correct array', async () => {
     const returnObj = setup({
       asyncFunction: async () => null,
-    }) as ReturnType<typeof useAsync>;
+    });
 
     // Expect a an array with length 4
     expect(Object.keys(returnObj)).toHaveLength(4);
@@ -70,7 +70,7 @@ describe('useAsync', () => {
       asyncFunction: async () => {
         throw new Error(ERROR_MSG);
       },
-    }) as ReturnType<typeof useAsync>;
+    });
 
     // Expect a an array with length 4
     expect(Object.keys(returnObj)).toHaveLength(4);
@@ -99,7 +99,7 @@ describe('useAsync', () => {
   it('correctly utilizes the custom state setter', async () => {
     const returnObj = setupWithSetter({
       asyncFunction: async () => Promise.resolve(true),
-    }) as ReturnType<typeof useAsync>;
+    });
 
     // Expect a an array with length 4
     expect(Object.keys(returnObj)).toHaveLength(4);

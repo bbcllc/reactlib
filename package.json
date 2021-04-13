@@ -67,7 +67,10 @@
       "node"
     ],
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "setupFiles": [
+      "./src/__mocks__/localStorage.mock.ts"
+    ]
   },
   "dependencies": {
     "@types/react-dom": "^17.0.3",
