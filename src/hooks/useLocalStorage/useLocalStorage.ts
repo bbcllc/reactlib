@@ -15,9 +15,11 @@ const useLocalStorage = <ValueType>({
 }): [
   value: ValueType | undefined,
   set: Dispatch<SetStateAction<ValueType | undefined>>,
-  clear: () => void
+  clear: () => void,
+  loading: boolean
 ] => {
   const [value, setValue] = useState(defaultValue);
+  const [loading, setLoading] = useState(true);
 
   const clear = useCallback(() => {
     setValue(undefined);
@@ -25,12 +27,13 @@ const useLocalStorage = <ValueType>({
   }, [key, setValue]);
 
   useEffect(() => {
-    if (defaultValue) {
+    const valueFromLocalStorage = localStorage.getItem(key);
+    if (valueFromLocalStorage) {
+      setValue(JSON.parse(valueFromLocalStorage));
+    } else if (defaultValue) {
       localStorage.setItem(key, JSON.stringify(defaultValue));
-    } else {
-      const valueFromLocalStorage = localStorage.getItem(key);
-      if (valueFromLocalStorage) setValue(JSON.parse(valueFromLocalStorage));
     }
+    setLoading(false);
   }, [key]);
 
   useEffect(() => {
@@ -41,7 +44,7 @@ const useLocalStorage = <ValueType>({
     }
   }, [value]);
 
-  return [value, setValue, clear];
+  return [value, setValue, clear, loading];
 };
 
 export default useLocalStorage;

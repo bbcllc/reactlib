@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocalStorage } from '../../../hooks';
 
 const CookiePopup = ({
   localStorageKey = 'hideCookiePopup',
+  buttonText = 'Okay',
 }: {
   localStorageKey?: string;
+  buttonText?: string;
 }): React.ReactElement => {
-  const [isChecked, setIsChecked] = useLocalStorage({
+  const [isChecked, setIsChecked, , loading] = useLocalStorage({
     key: localStorageKey,
     defaultValue: false,
   });
-  const [isShowing, setIsShowing] = useState(isChecked);
+  const [isShowing, setIsShowing] = useState(!isChecked);
+
+  useEffect(() => {
+    setIsShowing(!isChecked);
+  }, [loading]);
 
   const toggleCheck = () => setIsChecked((prev) => !prev);
   const closePopup = () => setIsShowing(false);
@@ -35,7 +41,7 @@ const CookiePopup = ({
                 />{' '}
                 Don&apos;t show again
               </label>
-              <button onClick={closePopup}>Okay</button>
+              <button onClick={closePopup}>{buttonText}</button>
             </div>
           </div>
         </div>

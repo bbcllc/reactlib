@@ -31,13 +31,15 @@ describe('useLocalStorage', () => {
     });
 
     // Expect an array with length 3
-    expect(Object.keys(returnObj)).toHaveLength(3);
+    expect(Object.keys(returnObj)).toHaveLength(4);
     // Expect value to be undefined
     expect(returnObj[0]).toBeUndefined();
     // Setter should be a function
     expect(returnObj[1]).toBeInstanceOf(Function);
     // Clear should be a function
     expect(returnObj[2]).toBeInstanceOf(Function);
+    // Fourth item should be a boolean
+    expect([true, false]).toContain(returnObj[3]);
   });
 
   it('should correctly initialize defaultValue', () => {
@@ -50,7 +52,7 @@ describe('useLocalStorage', () => {
     });
 
     // Expect an array with length 3
-    expect(Object.keys(returnObj)).toHaveLength(3);
+    expect(Object.keys(returnObj)).toHaveLength(4);
     // Expect value to be initialized correctly
     expect(returnObj[0]).toBe(TEST_VAL);
     // Expect localStorage to have been set correctly
@@ -68,7 +70,7 @@ describe('useLocalStorage', () => {
     });
 
     // Expect an array with length 3
-    expect(Object.keys(returnObj)).toHaveLength(3);
+    expect(Object.keys(returnObj)).toHaveLength(4);
     // Expect value to be undefined
     expect(returnObj[0]).toBeUndefined();
 
@@ -98,7 +100,7 @@ describe('useLocalStorage', () => {
     });
 
     // Expect an array with length 3
-    expect(Object.keys(returnObj)).toHaveLength(3);
+    expect(Object.keys(returnObj)).toHaveLength(4);
     // Expect value to be undefined
     expect(returnObj[0]).toBeUndefined();
 
@@ -130,7 +132,7 @@ describe('useLocalStorage', () => {
     });
 
     // Expect an array with length 3
-    expect(Object.keys(returnObj)).toHaveLength(3);
+    expect(Object.keys(returnObj)).toHaveLength(4);
     // Expect value to be undefined
     expect(returnObj[0]).toBe(TEST_VAL);
   });
