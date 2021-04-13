@@ -1,6 +1,5 @@
 .carousel-wrapper {
   width: 100%;
-  padding: 1rem 0;
   display: flex;
   flex-flow: column nowrap;
 
@@ -11,7 +10,6 @@
     display: flex;
     flex-flow: row wrap;
     align-items: stretch;
-    margin-bottom: 1rem;
     flex-grow: 1;
     height: 30rem;
 
