@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest --watchAll",
     "test:once": "jest",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -68,6 +68,12 @@
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/index.ts"
+    ],
     "setupFiles": [
       "./src/__mocks__/localStorage.mock.ts"
     ]
