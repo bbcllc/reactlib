@@ -4,7 +4,7 @@ import {
   useCallback,
   useEffect,
   useState,
-} from 'react';
+} from "react";
 
 const useLocalStorage = <ValueType>({
   key,
