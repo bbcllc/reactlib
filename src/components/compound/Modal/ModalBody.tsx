@@ -7,7 +7,7 @@ const ModalBody = ({
   const {} = useModal();
 
   return (
-    <div className="modal-body-wrapper" data-testid="modal-body">
+    <div className="modal-body-wrapper">
       <div className="modal-body-container">
         <div className="modal-body-content">{children}</div>
       </div>

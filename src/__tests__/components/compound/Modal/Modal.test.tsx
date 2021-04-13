@@ -13,7 +13,7 @@ describe('Modal component', () => {
     // Create an empty spy function
     const callback = jest.fn(() => null);
     // Render the modal with our spy as the closeModal function
-    const { getByText, getByTestId } = render(
+    const { getByText, container } = render(
       <Modal closeModal={callback}>
         <Modal.Header>{HEADER_TEXT}</Modal.Header>
       </Modal>
@@ -24,7 +24,9 @@ describe('Modal component', () => {
     // Assert our closeModal (spy) has not ben called yet
     expect(callback).toHaveBeenCalledTimes(0);
     // Get a reference to the close button
-    const closeButton = getByTestId('modal-close-button');
+    const closeButton = container.querySelector(
+      '.modal-close-button'
+    ) as Element;
     // "Click" on the close button to trigger our function spy
     fireEvent['click'](closeButton);
     // Assert our spy has been called once

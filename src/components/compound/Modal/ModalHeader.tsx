@@ -10,15 +10,11 @@ const ModalHeader: React.FC<IModalHeaderProps> = ({
   const { closeModal } = useModal();
 
   return (
-    <div className="modal-header-wrapper" data-testid="modal-header">
+    <div className="modal-header-wrapper">
       <div className="modal-header-container">
         <div className="modal-header-content">{children}</div>
         {!hideCloseButton && (
-          <div
-            className="modal-close-button"
-            onClick={closeModal}
-            data-testid="modal-close-button"
-          >
+          <div className="modal-close-button" onClick={closeModal}>
             &times;
           </div>
         )}

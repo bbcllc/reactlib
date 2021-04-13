@@ -7,7 +7,7 @@ const ModalFooter = ({
   const {} = useModal();
 
   return (
-    <div className="modal-footer-wrapper" data-testid="modal-footer">
+    <div className="modal-footer-wrapper">
       <div className="modal-footer-container">
         <div className="modal-footer-content">{children}</div>
       </div>

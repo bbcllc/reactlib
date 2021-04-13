@@ -25,13 +25,13 @@ const CarouselContainer = ({
   const setNum = (num: number) => setCurrent(num);
 
   const circles = (): React.ReactNode => {
-    const circleElements = [...new Array(numItems)].map((x, i) => {
-      if (i === current)
-        return (
-          <FaCircle key={i} className="active" onClick={() => setNum(i)} />
-        );
-      else return <FaCircle key={i} onClick={() => setNum(i)} />;
-    });
+    const circleElements = [...new Array(numItems)].map((x, i) => (
+      <FaCircle
+        key={i}
+        className={`carousel-circle${i === current ? ' active' : ''}`}
+        onClick={() => setNum(i)}
+      />
+    ));
     return <>{circleElements.map((c) => c)}</>;
   };
 

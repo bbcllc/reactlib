@@ -4,7 +4,6 @@ import { IRenderCarouselProps } from './CarouselTypes';
 
 const RenderCarousel = ({
   prev,
-  numItems,
   children,
   getClassName,
   next,

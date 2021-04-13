@@ -24,7 +24,7 @@ describe('Modal.Header component', () => {
     const callback = jest.fn(() => null);
 
     // Render the modal with our spy as the closeModal function
-    const { getByTestId } = render(
+    const { container } = render(
       <Modal closeModal={callback}>
         <Modal.Header />
       </Modal>
@@ -34,7 +34,9 @@ describe('Modal.Header component', () => {
     expect(callback).toHaveBeenCalledTimes(0);
 
     // Get a reference to the close button
-    const closeButton = getByTestId('modal-close-button');
+    const closeButton = container.querySelector(
+      '.modal-close-button'
+    ) as Element;
     // "Click" on the close button to trigger our function spy
     fireEvent['click'](closeButton);
 
