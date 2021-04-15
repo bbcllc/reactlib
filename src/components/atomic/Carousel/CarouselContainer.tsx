@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaCircle } from 'react-icons/fa';
+import { ICarouselContainerProps } from './carouselTypes';
 import RenderCarousel from './RenderCarousel';
 
 const CarouselContainer = ({
@@ -55,12 +56,5 @@ const CarouselContainer = ({
     />
   );
 };
-
-interface ICarouselContainerProps {
-  title?: string;
-  secondsToChange?: number;
-  hideCircles?: boolean;
-  hideArrows?: boolean;
-}
 
 export default CarouselContainer;

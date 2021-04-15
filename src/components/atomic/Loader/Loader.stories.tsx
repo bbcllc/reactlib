@@ -25,7 +25,7 @@ NotCentered.args = { center: false, children: <AiOutlineAlert /> };
 NotCentered.parameters = { layout: 'padded' };
 
 export default {
-  title: 'Components/Loader',
+  title: 'Components/Atomic/Loader',
   component: Loader,
   parameters: {
     layout: 'fullscreen',
