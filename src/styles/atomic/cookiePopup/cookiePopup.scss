@@ -1,22 +1,24 @@
 .cookie-popup-wrapper {
+  width: 100%;
   position: fixed;
   bottom: 0;
-  width: 100%;
   background-color: #fffd;
-  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 200;
+  z-index: 50;
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+
   .cookie-popup-container {
-    max-width: 100%;
-    h2 {
-      text-shadow: 0 2px 2px #0005;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      margin-bottom: 1rem;
-    }
+    width: 100%;
+    max-width: 800px;
+    padding: 1rem;
     .cookie-popup-footer {
       display: flex;
       flex-flow: row nowrap;
@@ -27,7 +29,7 @@
         align-items: center;
 
         input {
-          margin-right: 1rem;
+          margin-right: 0.5rem;
         }
       }
     }

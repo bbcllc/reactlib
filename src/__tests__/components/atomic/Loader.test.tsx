@@ -35,42 +35,55 @@ describe('Loader component', () => {
   });
 
   it('correctly progresses the Dots interval', () => {
-    const { queryByText } = render(<Loader />);
+    const { queryAllByText } = render(<Loader />);
 
-    // No dots initially
-    expect(queryByText('.')).toBeFalsy();
+    // Renders 3 dots
+    const dots = queryAllByText('.');
+    expect(dots.length).toBe(3);
 
-    // Increment by 500ms, there should be ONE dot
+    // Expect that `every` dot is visible initially (opacity === 1)
+    expect(dots.every((dot) => dot.style.opacity === '1')).toBeTruthy();
+
+    // Increment by 500ms, the dots should all be invisible (opacity === 0)
     act(() => {
       jest.advanceTimersByTime(500);
     });
-    expect(queryByText('.')).toBeTruthy();
-    expect(queryByText('...')).toBeFalsy();
+    expect(dots.some((dot) => dot.style.opacity === '1')).toBeFalsy();
 
-    // Increment by another 1000ms there should be 3 dots
+    // Increment by another 1000ms and only the first two dots should be visible
     act(() => {
       jest.advanceTimersByTime(1000);
     });
-    expect(queryByText('...')).toBeTruthy();
-
-    // After another 500ms it should be back to no dots
-    act(() => {
-      jest.advanceTimersByTime(500);
-    });
-    expect(queryByText('.')).toBeFalsy();
+    expect(dots[0].style.opacity).toBe('1');
+    expect(dots[1].style.opacity).toBe('1');
+    expect(dots[2].style.opacity).toBe('0');
   });
 
   it("doesn't display dots when disabled in props", () => {
-    const { queryByText } = render(<Loader hideDots />);
+    const { queryAllByText } = render(<Loader hideDots />);
 
-    // No dots initially
-    expect(queryByText('.')).toBeFalsy();
+    // Doesn't render dots
+    const dots = queryAllByText('.');
+    expect(dots.length).toBe(0);
+  });
 
-    // Increment by 500ms, STILL no dots
-    act(() => {
-      jest.advanceTimersByTime(500);
-    });
-    expect(queryByText('.')).toBeFalsy();
-    expect(queryByText('...')).toBeFalsy();
+  it('applies the center class only when component center prop is true', () => {
+    const { container, rerender } = render(<Loader />);
+
+    // Loader should be rendered with the `center` class initially
+    expect(
+      (container.querySelector(
+        '.loader-wrapper'
+      ) as Element).classList.contains('center')
+    ).toBeTruthy();
+
+    rerender(<Loader center={false} />);
+
+    // Loader should no longer have the class
+    expect(
+      (container.querySelector(
+        '.loader-wrapper'
+      ) as Element).classList.contains('center')
+    ).toBeFalsy();
   });
 });

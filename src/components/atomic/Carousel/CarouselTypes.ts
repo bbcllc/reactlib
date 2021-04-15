@@ -1,3 +1,9 @@
+export interface ICarouselContainerProps {
+  secondsToChange?: number;
+  hideCircles?: boolean;
+  hideArrows?: boolean;
+}
+
 export interface IRenderCarouselProps {
   prev: () => void;
   next: () => void;
