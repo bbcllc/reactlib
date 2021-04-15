@@ -1,12 +1,12 @@
 import {
   KeyboardEventCodeOptions,
   KeyboardEventKeyOptions,
-} from './keyboardEventOptions';
+} from "./keyboardEventOptions";
 
-export interface IUseKeyProps<CodeType extends 'key' | 'code' = 'key'> {
+export interface IUseKeyProps<CodeType extends "key" | "code" = "key"> {
   codeType?: CodeType;
-  keyFunction?: 'down' | 'up';
-  key: CodeType extends 'key'
+  keyFunction?: "down" | "up";
+  key: CodeType extends "key"
     ? KeyboardEventKeyOptions
     : KeyboardEventCodeOptions;
   action: () => void;
