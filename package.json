@@ -1,6 +1,6 @@
 {
   "name": "@bbllc/reactlib",
-  "version": "1.0.254",
+  "version": "1.0.255",
   "description": "A group of reusable React components and hooks.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -82,7 +82,8 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.stories.{js,jsx,ts,tsx}"
     ],
     "coveragePathIgnorePatterns": [
       "src/index.ts"

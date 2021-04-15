@@ -2,8 +2,8 @@ import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { Carousel } from '../../../components';
 
-const getClassList = (node: Element): string[] => {
-  return Object.values(node.classList);
+const classListContains = (node: Element, key: string): boolean => {
+  return node.classList.contains(key);
 };
 
 describe('Carousel component', () => {
@@ -107,45 +107,45 @@ describe('Carousel component', () => {
     expect(circles).toHaveLength(4);
 
     // The first card should be shown and first circle active
-    expect(getClassList(cards[0])).toContain('show');
-    expect(getClassList(circles[0])).toContain('active');
+    expect(classListContains(cards[0], 'show')).toBeTruthy();
+    expect(classListContains(circles[0], 'active')).toBeTruthy();
 
     // Clicking the left button should move the carousel
     fireEvent['click'](leftButton);
 
     // The first card should now be `next` and fourth circle active
-    expect(getClassList(cards[0])).toContain('next');
-    expect(getClassList(circles[3])).toContain('active');
+    expect(classListContains(cards[0], 'next')).toBeTruthy();
+    expect(classListContains(circles[3], 'active')).toBeTruthy();
 
     // Clicking the left button should move the carousel again
     fireEvent['click'](leftButton);
 
     // The first card should now be hidden and third circle active
-    expect(getClassList(cards[0])).toContain('hide');
-    expect(getClassList(circles[2])).toContain('active');
+    expect(classListContains(cards[0], 'hide')).toBeTruthy();
+    expect(classListContains(circles[2], 'active')).toBeTruthy();
 
     // Clicking the right button should go forward again
     fireEvent['click'](rightButton);
 
     // The first card should be `next` and fourth circle active
-    expect(getClassList(cards[0])).toContain('next');
-    expect(getClassList(circles[3])).toContain('active');
+    expect(classListContains(cards[0], 'next')).toBeTruthy();
+    expect(classListContains(circles[3], 'active')).toBeTruthy();
 
     // Clicking the right button should go back to first card
     fireEvent['click'](rightButton);
 
     // The first card should be shown and first circle active
-    expect(getClassList(cards[0])).toContain('show');
-    expect(getClassList(circles[0])).toContain('active');
+    expect(classListContains(cards[0], 'show')).toBeTruthy();
+    expect(classListContains(circles[0], 'active')).toBeTruthy();
 
     // Clicking the third circle shows third card and activates third circle
     fireEvent['click'](circles[2]);
 
     // The first card should be hidden
-    expect(getClassList(cards[0])).toContain('hide');
+    expect(classListContains(cards[0], 'hide')).toBeTruthy();
     // Third card should be shown
-    expect(getClassList(cards[2])).toContain('show');
+    expect(classListContains(cards[2], 'show')).toBeTruthy();
     // Third circle active
-    expect(getClassList(circles[2])).toContain('active');
+    expect(classListContains(circles[2], 'active')).toBeTruthy();
   });
 });
