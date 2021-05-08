@@ -1,15 +1,7 @@
 import React, { SetStateAction, useEffect, useState } from 'react';
-import {
-  MdClose,
-  MdExpandLess,
-  MdExpandMore,
-  MdZoomIn,
-  MdZoomOut,
-  MdZoomOutMap,
-} from 'react-icons/md';
+import { MdClose, MdZoomIn, MdZoomOut, MdZoomOutMap } from 'react-icons/md';
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 import { useKey } from '../../../hooks';
-import { Loader } from '../Loader';
 
 const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
   const [showInfo, setShowInfo] = useState(false);
@@ -36,7 +28,7 @@ const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
 
   useKey({ key: 'Escape', action: closeModal });
 
-  return props.isVisible ? (
+  return (
     <TransformWrapper
       options={{
         limitToBounds: false,
@@ -53,14 +45,6 @@ const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
             </TransformComponent>
           </div>
           <div className="controls">
-            <div className="top-controls">
-              <button
-                onClick={toggleInfo}
-                title={`${showInfo ? 'Hide' : 'Show'} Info`}
-              >
-                {showInfo ? <MdExpandMore /> : <MdExpandLess />}
-              </button>
-            </div>
             <div className="bottom-controls">
               <button onClick={zoomOut} title="Zoom Out">
                 <MdZoomOut />
@@ -76,8 +60,6 @@ const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
         </div>
       )}
     </TransformWrapper>
-  ) : (
-    <Loader message={'Loading image'} />
   );
 };
 
