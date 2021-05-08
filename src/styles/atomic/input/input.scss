@@ -1,0 +1,29 @@
+.input-field {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  .input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    label {
+      width: 45%;
+      margin-right: 2rem;
+    }
+
+    & > input,
+    .react-datepicker-wrapper {
+      width: 50%;
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  .input-error {
+    color: red;
+  }
+}

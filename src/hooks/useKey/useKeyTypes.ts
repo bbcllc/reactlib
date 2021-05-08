@@ -5,7 +5,7 @@ import {
 
 export interface IUseKeyProps<CodeType extends "key" | "code" = "key"> {
   codeType?: CodeType;
-  keyFunction?: "down" | "up";
+  keyFunction?: "keydown" | "keyup";
   key: CodeType extends "key"
     ? KeyboardEventKeyOptions
     : KeyboardEventCodeOptions;

@@ -8,20 +8,20 @@ function useKey({
   key,
   action,
   codeType = "key",
-  keyFunction = "down",
+  keyFunction = "keydown",
 }: IUseKeyProps<"code" | "key">): void {
-  const callActionIfKeyMatches = useCallback(
+  const executeActionOnKey = useCallback(
     (event: KeyboardEvent) => {
-      if (event.key === key) action();
+      const code = event[codeType];
+      if (code === key) action();
     },
-    [key, action]
+    [key, action, codeType]
   );
 
   useEffect(() => {
-    document.addEventListener("keydown", callActionIfKeyMatches);
-    return () =>
-      document.removeEventListener("keydown", callActionIfKeyMatches);
-  }, [callActionIfKeyMatches]);
+    document.addEventListener(keyFunction, executeActionOnKey);
+    return () => document.removeEventListener(keyFunction, executeActionOnKey);
+  }, [executeActionOnKey, keyFunction]);
 }
 
 export default useKey;
