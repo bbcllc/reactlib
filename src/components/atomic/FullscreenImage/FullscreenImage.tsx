@@ -8,8 +8,7 @@ import {
   MdZoomOutMap,
 } from 'react-icons/md';
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
-import { Submissions } from '../../../api';
-import { useKeyPress } from '../../../hooks';
+import { useKey } from '../../../hooks';
 import { Loader } from '../Loader';
 
 const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
@@ -35,7 +34,7 @@ const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
     return () => window.removeEventListener('resize', resizeHandler);
   }, [props.isVisible]);
 
-  useKeyPress({ key: 'Escape' || 'Esc', action: closeModal });
+  useKey({ key: 'Escape', action: closeModal });
 
   return props.isVisible ? (
     <TransformWrapper
@@ -50,11 +49,7 @@ const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
           </div>
           <div className="img-wrapper">
             <TransformComponent>
-              <img
-                src={props.src}
-                alt="Submission displayed fullscreen"
-                className={`rotate-${props.rotation}`}
-              />
+              <img src={props.src} alt="Submission displayed fullscreen" />
             </TransformComponent>
           </div>
           <div className="controls">
@@ -82,20 +77,14 @@ const FullscreenImage = (props: FullscreenImageProps): React.ReactElement => {
       )}
     </TransformWrapper>
   ) : (
-    <>
-      <Loader message={'Loading image'} />
-    </>
+    <Loader message={'Loading image'} />
   );
 };
 
-interface FullscreenImageProps extends Submissions.ISubItem {
-  id: number;
+interface FullscreenImageProps {
+  id: string;
   src: string;
-  rotation: number;
-  prompt: string;
-  codename: string;
   isVisible: boolean;
-  score: number;
   setIsVisible: React.Dispatch<SetStateAction<boolean>>;
 }
 

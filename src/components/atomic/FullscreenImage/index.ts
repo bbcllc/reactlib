@@ -1,1 +1,1 @@
-export { default as FullscreenImage } from './FullscreenImage';
+export { default as FullscreenImage } from "./FullscreenImage";
