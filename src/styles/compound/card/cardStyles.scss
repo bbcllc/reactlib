@@ -1,0 +1,57 @@
+// .card-list {
+//   display: flex;
+//   flex-flow: row wrap;
+//   width: 100%;
+//   padding: 1rem;
+// }
+
+// .card-list .card {
+//   width: 48.5%;
+// }
+
+// .card-list .card:nth-of-type(odd) {
+//   margin-right: 3%;
+// }
+
+.card {
+  font-family: sans-serif;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+
+  border-radius: 1rem;
+  background-color: white;
+  border: 1px solid #d9dee2;
+  margin-bottom: 1rem;
+
+  @import './cardHeader.scss';
+  @import './cardBody.scss';
+  @import './cardFooter.scss';
+  @import './cardTopRight.scss';
+  @import './cardMenu.scss';
+}
+
+.top-right svg {
+  padding: 0.5rem;
+}
+
+// Dev Styles
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card .card-header h2 {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+.card-body p {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.card .card-footer {
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+}
