@@ -21,7 +21,10 @@ export const Basic = (): React.ReactElement => {
     >
       <Card.Header>Welcome</Card.Header>
       <Card.Body>
-        <p>asdasdasd</p>
+        <p>
+          some test text some test text some test text some test text some test
+          text some test text some test text
+        </p>
       </Card.Body>
       <Card.Footer right>
         <Button>Okay</Button>
