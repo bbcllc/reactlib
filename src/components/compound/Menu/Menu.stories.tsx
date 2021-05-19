@@ -75,6 +75,10 @@ MenuAsTooltip.args = {
   isOpen: true,
   bottom: true,
   hideItems: true,
+  style: {
+    width: '75%',
+    left: '12.5%',
+  },
 };
 
 export default {

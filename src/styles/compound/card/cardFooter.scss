@@ -1,7 +1,7 @@
 .card-footer {
   // Footer Styling
-  border-top: 1px solid #d9dee2;
   padding: 0.6rem 1.2rem;
+  border-top: 1px solid #d9dee2;
 
   // Content Styling
   // Add space between multiple elements
@@ -28,6 +28,8 @@
 }
 
 // If the footer is the first and last element, reduce the side spacing
+.top-right + .card-footer:last-child,
 .card-footer:first-child:last-child {
+  border-top: none;
   padding: 0.6rem;
 }

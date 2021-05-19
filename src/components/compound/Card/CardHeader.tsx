@@ -13,7 +13,9 @@ const CardHeader = ({
 
   return (
     <div
-      className={`card-header${hideDivider ? ' hide-divider' : ''}`}
+      className={`card-header\
+      ${hideDivider ? ' hide-divider' : ''}\
+      `}
       {...props}
     >
       {typeof children === 'string' ? (

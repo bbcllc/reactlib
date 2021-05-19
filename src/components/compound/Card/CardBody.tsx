@@ -5,9 +5,14 @@ const CardBody = ({
   children,
 }: React.PropsWithChildren<ICardBodyProps>): React.ReactElement => {
   const { bodyRef } = useContext(CardContext);
+
   return (
-    <div ref={bodyRef} className="card-body">
-      {children}
+    <div
+      ref={bodyRef}
+      className={`card-body\
+    `}
+    >
+      {typeof children === 'string' ? <p>{children}</p> : children}
     </div>
   );
 };

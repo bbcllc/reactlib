@@ -12,7 +12,7 @@ const CardFooter = ({
       ${right ? ' right-align' : ''}\
       `}
     >
-      {children}
+      {typeof children === 'string' ? <p>{children}</p> : children}
     </div>
   );
 };

@@ -114,7 +114,7 @@ export const JustFooter = (): React.ReactElement => {
         width: 250,
       }}
     >
-      <Card.Footer hideDivider right>
+      <Card.Footer right>
         <Button>Okay</Button>
         <Button type="alt">Cancel</Button>
       </Card.Footer>
