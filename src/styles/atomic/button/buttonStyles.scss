@@ -1,0 +1,34 @@
+.custom-button {
+  cursor: pointer;
+  border: none;
+
+  padding: 0.4rem 1.2rem;
+  border-radius: 1.6rem;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    transition: all 0.1s ease-in-out;
+  }
+
+  &.default {
+    background-color: #5872ff;
+    border: 1px solid #5872ff;
+    color: white;
+    &:hover {
+      background-color: #4661dd;
+      border-color: #4661dd;
+    }
+  }
+
+  &.alt {
+    background-color: #fff;
+    color: #5872ff;
+    border: 1px solid #5872ff;
+    &:hover {
+      background-color: #5872ff19;
+    }
+  }
+}
